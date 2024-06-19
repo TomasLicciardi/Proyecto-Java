@@ -2,12 +2,13 @@ package Entities;
 
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
+
 @Entity
-@Table(name = "factura")
+@Table(name = "Facturas")
 public class Factura {
 
     @Id
@@ -16,36 +17,34 @@ public class Factura {
 
     @Column
     @Temporal(TemporalType.DATE)
-    private Date fecha;
+    private LocalDateTime fecha;
 
     @Column
     private Double total;
 
-    @OneToOne
-    @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
+    @ManyToOne
+    @JoinColumn(name = "id_cliente")
+    private Cliente id_cliente;
 
+    @OneToMany(mappedBy = "id_factura",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<DetalleFactura> detallesFacturas;
 
     public Factura() {}
-    public Factura(Date fecha, Double total) {
-        this.fecha = fecha;
-        this.total = total;
+
+    public List<DetalleFactura> getDetallesFacturas() {
+        return detallesFacturas;
     }
 
-    public Integer getId() {
-        return id;
+    public void setDetallesFacturas(List<DetalleFactura> detallesFacturas) {
+        this.detallesFacturas = detallesFacturas;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Cliente getId_cliente() {
+        return id_cliente;
     }
 
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setId_cliente(Cliente id_cliente) {
+        this.id_cliente = id_cliente;
     }
 
     public Double getTotal() {
@@ -56,12 +55,20 @@ public class Factura {
         this.total = total;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public LocalDateTime getFecha() {
+        return fecha;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override
@@ -69,11 +76,22 @@ public class Factura {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Factura factura = (Factura) o;
-        return Objects.equals(id, factura.id) && Objects.equals(fecha, factura.fecha) && Objects.equals(total, factura.total);
+        return Objects.equals(id, factura.id) && Objects.equals(fecha, factura.fecha) && Objects.equals(total, factura.total) && Objects.equals(id_cliente, factura.id_cliente) && Objects.equals(detallesFacturas, factura.detallesFacturas);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, fecha, total);
+        return Objects.hash(id, fecha, total, id_cliente, detallesFacturas);
+    }
+
+    @Override
+    public String toString() {
+        return "Factura{" +
+                "id=" + id +
+                ", fecha=" + fecha +
+                ", total=" + total +
+                ", id_cliente=" + id_cliente +
+                //", detallesFacturas=" + detallesFacturas +
+                '}';
     }
 }

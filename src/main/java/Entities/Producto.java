@@ -3,10 +3,11 @@ package Entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "producto")
+@Table(name = "Productos")
 public class Producto {
 
     @Id
@@ -25,13 +26,10 @@ public class Producto {
     @Column
     private Double precio;
 
+    @OneToMany(mappedBy = "id_producto",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<DetalleFactura> detallesFacturas;
+
     public Producto() {}
-    public Producto(String descripcion, String codigo, Integer stock, Double precio) {
-        this.descripcion = descripcion;
-        this.codigo = codigo;
-        this.stock = stock;
-        this.precio = precio;
-    }
 
     public Integer getId() {
         return id;
@@ -39,30 +37,6 @@ public class Producto {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(Double precio) {
-        this.precio = precio;
-    }
-
-    public Integer getStock() {
-        return stock;
-    }
-
-    public void setStock(Integer stock) {
-        this.stock = stock;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
     }
 
     public String getDescripcion() {
@@ -73,16 +47,60 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public Integer getStock() {
+        return stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
+    }
+
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
+
+    public List<DetalleFactura> getDetallesFacturas() {
+        return detallesFacturas;
+    }
+
+    public void setDetallesFacturas(List<DetalleFactura> detallesFacturas) {
+        this.detallesFacturas = detallesFacturas;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Producto producto = (Producto) o;
-        return Objects.equals(id, producto.id) && Objects.equals(descripcion, producto.descripcion) && Objects.equals(codigo, producto.codigo) && Objects.equals(stock, producto.stock) && Objects.equals(precio, producto.precio);
+        return Objects.equals(id, producto.id) && Objects.equals(descripcion, producto.descripcion) && Objects.equals(codigo, producto.codigo) && Objects.equals(stock, producto.stock) && Objects.equals(precio, producto.precio) && Objects.equals(detallesFacturas, producto.detallesFacturas);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, descripcion, codigo, stock, precio);
+        return Objects.hash(id, descripcion, codigo, stock, precio, detallesFacturas);
+    }
+
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "id=" + id +
+                ", descripcion='" + descripcion + '\'' +
+                ", codigo='" + codigo + '\'' +
+                ", stock=" + stock +
+                ", precio=" + precio +
+                //", detallesFacturas=" + detallesFacturas +
+                '}';
     }
 }

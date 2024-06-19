@@ -3,10 +3,11 @@ package Entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "cliente")
+@Table(name = "Clientes")
 public class Cliente {
 
     @Id
@@ -22,17 +23,10 @@ public class Cliente {
     @Column
     private Integer dni;
 
-    @OneToOne(mappedBy = "cliente")
-    private Factura factura;
-
-    //Hola Mundo!
+    @OneToMany(mappedBy = "id_cliente",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Factura> facturas;
 
     public Cliente() {}
-    public Cliente(String nombre, String apellido, Integer dni) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.dni = dni;
-    }
 
     public Integer getId() {
         return id;
@@ -66,25 +60,35 @@ public class Cliente {
         this.dni = dni;
     }
 
-    public Factura getFactura() {
-        return factura;
+    public List<Factura> getFacturas() {
+        return facturas;
     }
 
-    public void setFactura(Factura factura) {
-        this.factura = factura;
+    public void setFacturas(List<Factura> facturas) {
+        this.facturas = facturas;
     }
-
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cliente cliente = (Cliente) o;
-        return Objects.equals(id, cliente.id) && Objects.equals(nombre, cliente.nombre) && Objects.equals(apellido, cliente.apellido) && Objects.equals(dni, cliente.dni);
+        return Objects.equals(id, cliente.id) && Objects.equals(nombre, cliente.nombre) && Objects.equals(apellido, cliente.apellido) && Objects.equals(dni, cliente.dni) && Objects.equals(facturas, cliente.facturas);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, apellido, dni);
+        return Objects.hash(id, nombre, apellido, dni, facturas);
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", dni=" + dni +
+                //", facturas=" + facturas +
+                '}';
     }
 }

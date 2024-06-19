@@ -4,19 +4,26 @@ import jakarta.persistence.*;
 
 public class GenericManager {
 
-    public static final EntityManagerFactory entityManagerFactory;
-
+    private static final String PERSISTENCE_UNIT_NAME = "commercePU";
+    private static EntityManagerFactory factory;
     static {
-        entityManagerFactory = Persistence.createEntityManagerFactory("commercePU");
+        factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
     }
 
-    public static EntityManager getEntityManager() {
-        return entityManagerFactory.createEntityManager();
+    public static EntityManager get() {
+        return factory.createEntityManager();
     }
 
-    public static void closeEntityManagerFactory() {
-        if (entityManagerFactory != null && entityManagerFactory.isOpen()) {
-            entityManagerFactory.close();
+    public static void close() {
+        if (factory != null && factory.isOpen()) {
+            factory.close();
         }
     }
+
+    public static void closeEntity(EntityManager entityManager) {
+        if (entityManager != null && entityManager.isOpen()) {
+            entityManager.close();
+        }
+    }
+
 }
