@@ -6,14 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="6f0623e2-fce6-4c97-a4d3-9dd4193ee51a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Entities/DetalleFactura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/DetalleFactura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Factura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Factura.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Producto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/GenericManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/GenericManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/GestorCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/GestorCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Services/GestorDetalleFactura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/GestorDetalleFactura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/GestorProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/GestorProducto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,12 +42,18 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/tomil/Desktop/PROGRAMACION/CODERHOUSE/Java/ProyectoCoder&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tomil\Desktop\PROGRAMACION\CODERHOUSE\Java\ProyectoCoder\src\main\resources\META-INF" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="ProyectoCoder" />

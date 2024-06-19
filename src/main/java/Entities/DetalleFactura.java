@@ -17,7 +17,7 @@ public class DetalleFactura {
     private Integer monto;
 
     @Column
-    private Double precioUnitario;
+    private Double precio_unitario;
 
     @ManyToOne
     @JoinColumn(name = "id_factura")
@@ -47,11 +47,11 @@ public class DetalleFactura {
     }
 
     public Double getPrecioUnitario() {
-        return precioUnitario;
+        return precio_unitario;
     }
 
     public void setPrecioUnitario(Double precioUnitario) {
-        this.precioUnitario = precioUnitario;
+        this.precio_unitario = precioUnitario;
     }
 
     public Factura getId_factura() {
@@ -75,12 +75,12 @@ public class DetalleFactura {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         DetalleFactura that = (DetalleFactura) o;
-        return Objects.equals(id, that.id) && Objects.equals(monto, that.monto) && Objects.equals(precioUnitario, that.precioUnitario) && Objects.equals(id_factura, that.id_factura) && Objects.equals(id_producto, that.id_producto);
+        return Objects.equals(id, that.id) && Objects.equals(monto, that.monto) && Objects.equals(precio_unitario, that.precio_unitario) && Objects.equals(id_factura, that.id_factura) && Objects.equals(id_producto, that.id_producto);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, monto, precioUnitario, id_factura, id_producto);
+        return Objects.hash(id, monto, precio_unitario, id_factura, id_producto);
     }
 
     @Override
@@ -88,7 +88,7 @@ public class DetalleFactura {
         return "DetalleFactura{" +
                 "id=" + id +
                 ", monto=" + monto +
-                ", precioUnitario=" + precioUnitario +
+                ", precioUnitario=" + precio_unitario +
                 ", id_factura=" + id_factura +
                 ", id_producto=" + id_producto +
                 '}';

@@ -29,6 +29,7 @@ public class Producto {
     @OneToMany(mappedBy = "id_producto",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DetalleFactura> detallesFacturas;
 
+
     public Producto() {}
 
     public Integer getId() {
