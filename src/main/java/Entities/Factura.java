@@ -16,7 +16,7 @@ public class Factura {
     private Integer id;
 
     @Column
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime fecha;
 
     @Column
